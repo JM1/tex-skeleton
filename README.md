@@ -5,6 +5,8 @@ REPO=myname
 mkdir "$REPO"
 cd "$REPO"
 
+git init
+
 # Setup Git LFS
 git lfs install --local
 
