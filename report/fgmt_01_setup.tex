@@ -1,0 +1,395 @@
+% Copyright (c) 2016-2020 Jakob Meng, <jakobmeng@web.de>
+
+\usepackage{etex} % increases the number of registers and thus prevents latex errors like '! No room for a new \<thing>...'
+
+\usepackage[
+    english, % secondary language
+    ngerman  % primary language
+]{babel} % Silbentrennung
+%\selectlanguage{ngerman}
+
+\usepackage{translator}
+
+\usepackage[T1]{fontenc} % Nutzung der erweiterten Zeichensaetze. 
+\usepackage[utf8]{inputenc} % fuer die Nutzung deutscher Umlauten (Windows)
+\usepackage{lmodern} % Latin Modern are a handmade vectorization of cm bitmap fonts
+
+\usepackage{amsmath} % mathematischer Formelsatz
+\usepackage{graphicx} % wichtig, um externe Grafiken einbinden zu koennen
+\usepackage{latexsym} % wichtig, fuer die mathematischen Sonderzeichen 
+\usepackage{amsthm} %fuer die Saetze / Theoreme (z.B. \newtheorem{}
+%\usepackage{ulem} % fuer das Unterstreichen (ACHTUNG: Unterstrichene Wörter werden nicht umgebrochen. Dies führt z.B. im Literaturverzeichnis zu Problemen bei langen Titeln etc.!)
+\usepackage{amssymb} %fuer \square
+\usepackage{stmaryrd} %fuer \rightarrowtriangle
+\usepackage[usenames,dvipsnames,svgnames]{xcolor} % Fügt weitere Farben mit Namen hinzu, muss vor dem tikz package eingebunden werden, damit das tikz package die Namen nutzen kann
+%\usepackage{inconsolata} % Google Fonts Inconsolata
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst} %fuer korrekte Silbentrennung
+
+
+\usepackage{enumitem} %Anpassbare Enumerates/Itemizes. Inkompatibel zu Beamer
+
+\usepackage[a4paper,left=20mm,right=20mm, top=20mm, bottom=5mm, includeheadfoot]{geometry} % Seitenabstaende etc. bei Thesis
+
+%setzt Helvetica als Standardschriftart im gesamten Dokument. Arial ist lediglich eine Nachahmung von Helvetica mit geringen Unterschieden. 
+%http://www.faqs.org/faqs/de-tex-faq/part10/
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+\usepackage{microtype}
+%\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true]{microtype}
+%\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+% Quelle: http://www.khirevich.com/latex/microtype/
+
+%\linespread {1.0} 
+%\linespread is evil! Siehe ftp://ftp.dante.de/tex-archive/info/german/l2tabu/l2tabu.pdf, lieber z.B. \onehalfspacing oder \singlespacing
+\usepackage{setspace} % Zeilenabstand mit z.B. \onehalfspacing % 1,5 Zeilen
+%% Zeilenabstand einstellen:
+%%\singlespacing
+%%\onehalfspacing
+%%\doublespacing
+%%\spacing{n}
+
+\usepackage{float} % fuer Listen mit \newfloat
+
+\usepackage{tikz} % Zum Zeichnen von z.B. einer Klammer neben itemize oder von Zeichnung, die aus Dia exportiert wurden.
+%\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathreplacing,calc,positioning,shapes.geometric}
+
+\usepackage[%pdfview=FitH,
+            %pdfstartview=FitH,
+            colorlinks=true,
+            linkcolor=black,
+            citecolor=black,
+            menucolor=black,
+            urlcolor=black,
+            breaklinks=true,
+            %plainpages=false,
+            bookmarksopen=true
+           ]{hyperref} % Mächtige Alternative zum url package.
+
+\usepackage[numbered=false]{bookmark} % e.g. enable/disable numbering in PDF bookmarks/toc
+
+\usepackage[
+            backend=biber,
+            %style=trad-abbrv,
+            %style=trad-alpha,
+            %style=authoryear,
+            hyperref=true,
+            %dashed=false, % Unterdrückt den Strich im Literaturverzeichnis bei mehreren Literaturangaben zum gleichen Autor
+            mincitenames=1, 
+            %maxcitenames=1, % Zeigt bei Literaturhinweisen nur einen Autor an
+            maxbibnames=99, % Zeigt im Literaturverzeichnis alle Autoren an
+            isbn=false,url=false,doi=false,eprint=false, % Biblatex Manual "3.1.2.2 Style-specific"
+           ]{biblatex}
+
+\usepackage[
+            babel,
+            %german=guillemets
+            %german=quotes
+           ]{csquotes}
+
+\usepackage{ragged2e} % Erlaubt z.B. Linksbündiges Literaturverzeichnis
+\usepackage{units} % Für Einheiten und schräge Bruchstriche mit \nicefrac{}{} oder \unitfrac{}{}
+
+\usepackage{newunicodechar}
+\usepackage{textcomp} % e.g. \textquotesingle
+
+\usepackage{listings}
+\lstset{
+    language={[11]C++},
+%     %language=bash,
+     basicstyle=\ttfamily\small,
+     numberstyle=\footnotesize,
+     numbers=left,
+     backgroundcolor=\color{gray!5},
+%      frame=single,
+    frame=tb,
+     tabsize=2,
+     rulecolor=\color{black!30},
+     %title=\lstname,
+%     escapeinside={\%*}{*)},
+     escapeinside={(*@}{@*)},
+%     breaklines=true,
+%     breakatwhitespace=true,
+%     framextopmargin=2pt,
+%     framexbottommargin=2pt,
+%     inputencoding=utf8,
+%     extendedchars=true,
+%
+    %aboveskip=0em,
+    %belowskip=0em,
+    xleftmargin=1.5em,
+    xrightmargin=2pt,
+    %framexleftmargin=1.5em, % line numbers inside paragraph
+    numbersep=6pt,
+    %columns=fullflexible,
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    commentstyle=\color{pgreen},
+    keywordstyle=\color{pblue},
+    stringstyle=\color{pred},
+    moredelim=[il][\textcolor{pgrey}]{\$\$},
+    moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+    extendedchars=true,
+    literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+        {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+        {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+        {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+        {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+        {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+        {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+        {€}{{\EUR}}1 {£}{{\pounds}}1
+        {↓}{{$\downarrow$}}1,
+    captionpos=b,
+}
+
+% Ref.: https://tex.stackexchange.com/a/106129
+\definecolor{diffstart}{named}{Grey}
+\definecolor{diffincl}{named}{Green}
+\definecolor{diffrem}{named}{OrangeRed}
+\usepackage{listings}
+  \lstdefinelanguage{diff}{
+    basicstyle=\ttfamily\small,
+    morecomment=[f][\color{diffstart}]{@@},
+    morecomment=[f][\color{diffincl}]{+},
+    morecomment=[f][\color{diffrem}]{-},
+  }
+
+%\usepackage{minted} %Syntax Highlighting (ACHTUNG: Unterstützt keine deutschen Sonderzeichen wie ä,ö,ü!)
+%\usemintedstyle{autumn}
+
+\usepackage{multimedia} % for \movie...
+
+\usepackage{wrapfig} %Erlaubt Wrappen von Text neben Abbildungen
+\usepackage[weather,misc]{ifsym} % Für \Radiation, \Sun ...
+
+\usepackage{scrhack} % KOMA-Script improvements, loaded at the end due to problems with e.g. package minted
+\usepackage[headsepline]{scrlayer-scrpage} % Page headers and footers for KOMA-Script, scrpage2 is obsolete now.
+
+\usepackage{subcaption} %für begin{subfigure} etc.
+\usepackage{fancyvrb} % supports enhanced verbatim features, e.g. \begin{Verbatim}
+
+\usepackage{blkarray} % for \begin{blockarray}, see https://tex.stackexchange.com/a/59519/128708
+
+\usepackage{arevmath} % e.g. \warning
+\usepackage{oz} % e.g. \bij
+
+\usepackage{bbm} % Black­board vari­ants of Com­puter Modern fonts
+
+\usepackage{algorithm, algpseudocode} % Typesetting algorithms in form of "pseudocode"
+
+% defines a new macro block for algorithm environment
+% Ref.: https://tex.stackexchange.com/questions/19982/how-do-i-add-parfor-in-algorithmic-environment/20004#20004
+\algblock{Macro}{EndMacro}
+\algnewcommand\algorithmicmacro{\textbf{macro}}
+\algnewcommand\algorithmicendmacro{\textbf{end\ macro}}
+\algrenewtext{Macro}[1]{\algorithmicmacro{} \uppercase{#1}}
+\algrenewtext{EndMacro}{\algorithmicendmacro}
+
+\algblock{MatlabFunction}{EndMatlabFunction}
+\algnewcommand\algorithmicmatlabfunction{\textbf{function}}
+\algnewcommand\algorithmicendmatlabfunction{\textbf{end\ function}}
+\algrenewtext{MatlabFunction}[3]{\algorithmicmatlabfunction{} [#1] = \uppercase{#2}(#3)}
+\algrenewtext{EndMatlabFunction}{\algorithmicendmatlabfunction}
+
+% Ref.: /usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+\newcommand{\Description}[1]{%
+    \item[]\hspace{-\listparindent}
+    \parbox[t]{\linewidth+\listparindent}{
+        \leftskip=\listparindent
+        \parindent=-\listparindent
+        \textbf{Description:} #1
+    }%
+}
+
+% Ref.: https://tex.stackexchange.com/a/63667
+% Comment using the right half of the text
+\newcommand{\CommentRH}[1]{%
+    \Comment{\parbox[t]{.5\linewidth}{#1}}%
+}
+% Comment using the full text width and new line
+\newcommand{\LineComment}[1]{%
+    \Statex \Comment{\parbox[t]{0.95\linewidth}{#1}}
+}
+% \algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
+
+\makeatletter
+\renewcommand*{\ALG@name}{Algorithmus}
+\makeatother
+
+% \usepackage{musicography} % for music symbols, package is not in Debian Stretch and earlier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ultriangle}{
+\tikz[baseline=-.0ex]{\draw (0,0) -- (.66em,0) -- (0,.66em) -- (0,0);}
+} % upper left triangle (^^e2^^97^^b8)
+\newcommand{\urtriangle}{
+\tikz[baseline=-.0ex]{\draw (.66em,0) -- (.66em,.66em) -- (0,.66em) -- (.66em,0);}
+} % upper right triangle (^^e2^^97^^b9)
+\newcommand{\lltriangle}{
+\tikz[baseline=-.0ex]{\draw (0,0) -- (0,.66em) -- (.66em,0) -- (0,0);}
+} % lower left triangle (^^e2^^97^^ba)
+\newcommand{\lrtriangle}{
+\tikz[baseline=-.0ex]{\draw (0,0) -- (.66em,.66em) -- (.66em,0) -- (0,0);}
+} % lower right triangle (^^e2^^97^^bf)
+
+%\newunicodechar{≙}{$\mathrel{\hat=}$}
+\newunicodechar{≙}{\hateq}
+\newunicodechar{≈}{\approx}
+\newunicodechar{≤}{\leq}
+\newunicodechar{≥}{\geq}
+\newunicodechar{≪}{\ll}
+\newunicodechar{∈}{\in}
+\newunicodechar{ℕ}{\mathbb{N}}
+\newunicodechar{α}{\alpha}
+\newunicodechar{𝛽}{\beta}
+\newunicodechar{β}{\beta}
+\newunicodechar{ϵ}{\epsilon}
+\newunicodechar{σ}{\sigma}
+\newunicodechar{τ}{\tau}
+\newunicodechar{θ}{\theta}
+\newunicodechar{𝛴}{\Sigma}
+\newunicodechar{μ}{\mu}
+\newunicodechar{→}{\rightarrow}
+\newunicodechar{↓}{\downarrow}
+\newunicodechar{×}{\times}
+\newunicodechar{≡}{\equiv}
+\newunicodechar{√}{\surd}%\textsurd
+\newunicodechar{Σ}{\Sigma}
+\newunicodechar{⇽}{\leftarrowtriangle}
+\newunicodechar{⇾}{\rightarrowtriangle}
+\newunicodechar{♯}{\sharp} % correct would be \musSharp{} from \usepackage{musicography} which is not in Debian Stretch or earlier.
+\newunicodechar{ℝ}{\mathbb{R}}
+\newunicodechar{ℂ}{\mathbb{C}}
+\newunicodechar{ℤ}{\mathbb{Z}}
+\newunicodechar{ℚ}{\mathbb{ℚ}}
+\newunicodechar{⎣}{\lfloor}
+\newunicodechar{⎦}{\rfloor}
+\newunicodechar{⎡}{\lceil}
+\newunicodechar{⎤}{\rceil}
+\newunicodechar{⚠}{\warning}
+\newunicodechar{⤖}{\bij}
+\newunicodechar{◸}{\ultriangle}
+\newunicodechar{◹}{\urtriangle}
+\newunicodechar{◺}{\lltriangle}
+\newunicodechar{◿}{\lrtriangle}
+\newunicodechar{⇐}{\Leftarrow}
+\newunicodechar{⇒}{\Rightarrow}
+\newunicodechar{↔}{\leftrightarrow}
+\newunicodechar{⇔}{\Leftrightarrow}
+\newunicodechar{∧}{\wedge}
+\newunicodechar{∨}{\vee}
+
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\house}{house}
+\DeclareMathOperator{\G}{G}
+\DeclareMathOperator{\tol}{tol}
+
+% Wie kann ich ,Hurenkinder` (engl. widows), also einzelne Zeilen eines Absatzes am Kopf von Buchseiten, bzw. ,Schusterjungen/Waisenkinder` (engl. clubs), einzelne Absatzzeilen auf der Seite unten, verhindern? 
+% Ref.: 
+%  http://projekte.dante.de/DanteFAQ/Silbentrennung#4
+%  https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Widows_and_orphans
+\clubpenalty=300
+\widowpenalty=300
+\displaywidowpenalty=300
+
+% Rename abstract heading when using babel
+\addto{\captionsngerman}{\renewcommand{\abstractname}{Abriss}}
+%\addto{\captionsngerman}{\renewcommand{\abstractname}{Abstract}}
+
+% Renaming the bibliography page using BibTeX, ref.: https://tex.stackexchange.com/a/12612
+%\renewcommand{\bibname}{Whatever floats your boat}
+%\addto{\captionsngerman}{\renewcommand{\bibname}{Literaturverzeichnis}}
+
+\bibliography{bibliography/references.bib}
+
+\hyphenation{Lauf-zeit}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+% Reference: https://tex.stackexchange.com/a/170101
+\makeatletter
+
+% \hateq from MnSymbol
+% \usepackage{MnSymbol}
+\@ifpackageloaded{MnSymbol}\@tempswafalse\@tempswatrue
+\if@tempswa
+  \DeclareFontFamily{U}{MnSymbolD}{}%
+  \DeclareSymbolFont{MnSyD}{U}{MnSymbolD}{m}{n}%
+  \SetSymbolFont{MnSyD}{bold}{U}{MnSymbolD}{b}{n}%
+  \DeclareFontShape{U}{MnSymbolD}{m}{n}{
+      <-6>  MnSymbolD5
+     <6-7>  MnSymbolD6
+     <7-8>  MnSymbolD7
+     <8-9>  MnSymbolD8
+     <9-10> MnSymbolD9
+    <10-12> MnSymbolD10
+    <12->   MnSymbolD12}{}%
+  \DeclareFontShape{U}{MnSymbolD}{b}{n}{
+      <-6>  MnSymbolD-Bold5
+     <6-7>  MnSymbolD-Bold6
+     <7-8>  MnSymbolD-Bold7
+     <8-9>  MnSymbolD-Bold8
+     <9-10> MnSymbolD-Bold9
+    <10-12> MnSymbolD-Bold10
+    <12->   MnSymbolD-Bold12}{}%
+  \DeclareMathSymbol{\hateq}{\mathrel}{MnSyD}{61}% 
+\fi
+
+%Der Befehl \raggedbottom sorgt dafür, dass kein Ausgleich des unteren Seitenrandes durch Dehnung der Absatzabstände durchgeführt wird. 
+%Quelle: http://tex.stackexchange.com/questions/10743/why-does-latex-stretch-small-sections-across-the-whole-page-vertically/10747#10747
+\raggedbottom
+
+
+%Quelle: http://tex.stackexchange.com/a/44540
+%\newcommand{\Csh}{C{$^\sharp$}}
+\newcommand{\Csh}{C\#}
+%\newcommand{\Csh}{C\includegraphics{hash-symbol}}
+
+\setlength\parindent{0ex} %kein Einruecken am Anfang eines Paragraphen
+
+% Add an extra level of sections with headings below \subsubsection
+% Refs.: 
+%  https://tex.stackexchange.com/a/186982
+%  https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% Settings from Melanie Ludwig
+\pagestyle{scrheadings}
+\chead{}
+\ohead{\pagemark}
+\ihead{\headmark}
+\automark{section}
+\cfoot{}
+\ofoot{}
+
+\setlength\parskip{0.5\baselineskip}
+
+\theoremstyle{definition}
+
+\newtheorem{theorem}{Satz}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Bemerkung}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Beispiel}
+
+\newtheorem*{hyp}{Hypothese}
+\newtheorem{sub}{Subhypothese}

@@ -1,0 +1,42 @@
+% Copyright (c) 2016-2020 Jakob Meng, <jakobmeng@web.de>
+% NOTE: IF YOU WANT TO DELETE TEXT PARTS THEN ADD THEM YOUR NOTES FILE PRIOR TO REMOVAL!
+
+% \frontmatter
+\maketitle
+\newpage
+
+% \begin{figure}[h]
+%     \hspace{-2cm}
+%     \includegraphics[height = 18mm]{rsrc_01_logo.pdf}
+% \end{figure}
+
+\pagenumbering{Roman} % page numbering using roman capital letters
+\setcounter{page}{2}
+\singlespacing
+
+\newcommand{\tocspacing}{%
+    \onehalfspacing
+%   \setstretch{1.18}%
+%   %Src: \show\onehalfspacing
+%   \setstretch{1.25}%  default
+%   \ifcase \@ptsize \relax % 10pt
+%       \setstretch {1.25}%
+%   \or % 11pt
+%       \setstretch {1.213}%
+%   \or % 12pt
+%       \setstretch {1.241}%
+%   \fi
+}
+
+%\onehalfspacing
+%\doublespacing
+\tocspacing
+
+\label{toc}
+%\addcontentsline{toc}{chapter}{\translate{toc}}
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\singlespacing

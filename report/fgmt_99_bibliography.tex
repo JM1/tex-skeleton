@@ -1,0 +1,16 @@
+% Copyright (c) 2016-2020 Jakob Meng, <jakobmeng@web.de>
+% NOTE: IF YOU WANT TO DELETE TEXT PARTS THEN ADD THEM YOUR NOTES FILE PRIOR TO REMOVAL!
+
+%\nocite{*} % show all references in bibliography, even if not cited at all
+
+\part{\translate{bibliography}}
+\label{bibliography}
+
+%\printbibliography
+
+% No line break before and no header above bibliography
+\begingroup
+\let\clearpage\relax
+\RaggedRight % left-aligned
+\printbibliography[heading=none]
+\endgroup

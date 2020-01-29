@@ -1,0 +1,22 @@
+% Copyright (c) 2017-2020 Jakob Meng, <jakobmeng@web.de>
+
+%\documentclass[10pt]{article}
+%\documentclass[10pt,notitlepage]{scrartcl}
+%\documentclass[10pt]{scrartcl}
+%\documentclass{scrartcl}
+%\documentclass{scrbook}
+\documentclass[10pt,toc=left]{scrreprt}
+
+\input{fgmt_00_about.tex}
+\input{fgmt_01_setup.tex}
+\input{fgmt_02_configure.tex}
+
+\begin{document}
+
+\input{fgmt_03_preface.tex}
+
+\input{fgmt_09_abstract.tex}
+
+\input{fgmt_99_bibliography.tex}
+
+\end{document}

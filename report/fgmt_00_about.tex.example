@@ -1,0 +1,41 @@
+% Copyright (c) 2016-2020 Jakob Meng, <jakobmeng@web.de>
+% NOTE: IF YOU WANT TO DELETE TEXT PARTS THEN ADD THEM YOUR NOTES FILE PRIOR TO REMOVAL!
+
+%\titlehead{Kopf der Titelei}
+\subject{EFFIZIENTE GENERISCHE BIBLIOTHEKEN}
+\title{Mathematik}
+\subtitle{Dimensionsreduktion mit SVD, PCA, DMD, ...} % Theorie & Praxis
+%\author{Jakob Meng \and goLaTeX\thanks{Fussnote zum Autor}}
+\author{
+    Jakob Meng\\
+    \Letter{} jakob.meng@h-brs.de\\
+    \\
+    Fachbereich Informatik\\
+    Hochschule Bonn-Rhein-Sieg\\
+    Grantham-Allee 20, 53757 Sankt Augustin\\
+}
+\date{Sankt Augustin, \today}
+% \publishers{Betreut und herausgegeben von Prof. Dr. rer. LaTeX}
+% \extratitle{\centering Schmutztitel \\ goLaTeX (C) 2009 \\ ISBN 978-3865412911}
+% \uppertitleback{Obiger Titelrückentitel}
+% \lowertitleback{Für dieses Beispiel wird keine Haftung übernommen.}
+% \dedication{Dieses Beispiel widme ich\\allen LaTeX Usern}
+
+% \author{
+%     \IEEEauthorblockN{Jakob Meng}
+%     \IEEEauthorblockA{University of Applied Sciences\\
+%         Bonn-Rhein-Sieg\\
+%         %Grantham-Allee 20\\
+%         %53757 Sankt Augustin - Germany\\
+%         Email: jakob.meng@h-brs.de
+%     }
+%     \and
+%     \IEEEauthorblockN{Andreas Priesnitz}
+%     \IEEEauthorblockA{University of Applied Sciences\\
+%         Bonn-Rhein-Sieg\\
+%         %Grantham-Allee 20\\
+%         %53757 Sankt Augustin - Germany\\
+%         Email: andreas.priesnitz@h-brs.de
+%     }
+% }
+
