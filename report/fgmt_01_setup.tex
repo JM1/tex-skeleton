@@ -5,10 +5,10 @@
 \usepackage[
     english, % secondary language
     ngerman  % primary language
-]{babel} % Silbentrennung
-%\selectlanguage{ngerman}
+]{babel} % hyphenation
 
 \usepackage{translator}
+\usedictionary{language}
 
 \usepackage[T1]{fontenc} % Nutzung der erweiterten Zeichensaetze. 
 \usepackage[utf8]{inputenc} % fuer die Nutzung deutscher Umlauten (Windows)
@@ -23,7 +23,7 @@
 \usepackage{stmaryrd} %fuer \rightarrowtriangle
 \usepackage[usenames,dvipsnames,svgnames]{xcolor} % Fügt weitere Farben mit Namen hinzu, muss vor dem tikz package eingebunden werden, damit das tikz package die Namen nutzen kann
 %\usepackage{inconsolata} % Google Fonts Inconsolata
-\usepackage[ngerman=ngerman-x-latest]{hyphsubst} %fuer korrekte Silbentrennung
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst} % improved hyphenation
 
 
 \usepackage{enumitem} %Anpassbare Enumerates/Itemizes. Inkompatibel zu Beamer
@@ -299,9 +299,10 @@
 \DeclareMathOperator{\G}{G}
 \DeclareMathOperator{\tol}{tol}
 
-% Wie kann ich ,Hurenkinder` (engl. widows), also einzelne Zeilen eines Absatzes am Kopf von Buchseiten, bzw. ,Schusterjungen/Waisenkinder` (engl. clubs), einzelne Absatzzeilen auf der Seite unten, verhindern? 
-% Ref.: 
-%  http://projekte.dante.de/DanteFAQ/Silbentrennung#4
+% Wie kann ich ,Hurenkinder` (engl. widows), also einzelne Zeilen eines Absatzes am Kopf von Buchseiten,
+% bzw. ,Schusterjungen/Waisenkinder` (engl. clubs), einzelne Absatzzeilen auf der Seite unten, verhindern?
+% Ref.:
+%  http://projekte.dante.de/DanteFAQ/hyphenation#4
 %  https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Widows_and_orphans
 \clubpenalty=300
 \widowpenalty=300
@@ -353,12 +354,13 @@
   \DeclareMathSymbol{\hateq}{\mathrel}{MnSyD}{61}% 
 \fi
 
-%Der Befehl \raggedbottom sorgt dafür, dass kein Ausgleich des unteren Seitenrandes durch Dehnung der Absatzabstände durchgeführt wird. 
-%Quelle: http://tex.stackexchange.com/questions/10743/why-does-latex-stretch-small-sections-across-the-whole-page-vertically/10747#10747
+% Der Befehl \raggedbottom sorgt dafür, dass kein Ausgleich des unteren Seitenrandes durch Dehnung der Absatzabstände durchgeführt wird.
+% Ref.: http://tex.stackexchange.com/questions/10743/why-does-latex-stretch-small-sections-across-the-whole-page-vertically/10747#10747
 \raggedbottom
 
 
-%Quelle: http://tex.stackexchange.com/a/44540
+% Symbol for Programming Language C#
+%Ref.: http://tex.stackexchange.com/a/44540
 %\newcommand{\Csh}{C{$^\sharp$}}
 \newcommand{\Csh}{C\#}
 %\newcommand{\Csh}{C\includegraphics{hash-symbol}}
@@ -372,7 +374,7 @@
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
-% Settings from Melanie Ludwig
+
 \pagestyle{scrheadings}
 \chead{}
 \ohead{\pagemark}
@@ -385,11 +387,11 @@
 
 \theoremstyle{definition}
 
-\newtheorem{theorem}{Satz}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Bemerkung}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{example}[theorem]{Beispiel}
+\newtheorem{theorem}{\translate{theorem}}
+\newtheorem{definition}[theorem]{\translate{definition}}
+\newtheorem{remark}[theorem]{\translate{remark}}
+\newtheorem{lemma}[theorem]{\translate{lemma}}
+\newtheorem{example}[theorem]{\translate{example}}
 
-\newtheorem*{hyp}{Hypothese}
-\newtheorem{sub}{Subhypothese}
+\newtheorem{hypothesis}{\translate{hypothesis}}
+\newtheorem{subhypothesis}{\translate{subhypothesis}}

@@ -1,0 +1,11 @@
+% Copyright (c) 2020 Jakob Meng, <jakobmeng@web.de>
+
+\ProvidesDictionary{language}{english}
+
+\providetranslation{definition}{Definition}
+\providetranslation{example}{Example}
+\providetranslation{hypothesis}{Hypothesis}
+\providetranslation{lemma}{Lemma}
+\providetranslation{remark}{Remark}
+\providetranslation{theorem}{Theorem}
+\providetranslation{subhypothesis}{Subhypothesis}

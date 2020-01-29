@@ -11,6 +11,9 @@
 \input{fgmt_01_setup.tex}
 \input{fgmt_02_configure.tex}
 
+\selectlanguage{ngerman} % babel
+\uselanguage{ngerman} % translator
+
 \begin{document}
 
 \input{fgmt_03_preface.tex}

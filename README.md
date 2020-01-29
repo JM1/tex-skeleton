@@ -25,20 +25,16 @@ done
 # report
 
 for fgmt in \
-    report/fgmt_01_setup.tex \
-    report/fgmt_02_configure.tex \
-    report/fgmt_03_preface.tex \
-    report/fgmt_99_bibliography.tex \
+    report/fgmt_*.tex \
+    report/language-*.dict \
 ; do
     ln -s "tex_skeleton/$fgmt" "$(basename "$fgmt")"
 done
 
 for fgmt in \
-    report/fgmt_00_about.tex \
-    report/fgmt_09_abstract.tex \
-    report/master.tex \
+    report/*.example \
 ; do
-    cp -raiv "tex_skeleton/${fgmt}.example" "$(basename "$fgmt")"
+    cp -raiv "tex_skeleton/${fgmt}" "$(basename --suffix '.example' "$fgmt")"
 done
 
 make

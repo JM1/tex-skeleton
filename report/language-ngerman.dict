@@ -1,0 +1,11 @@
+% Copyright (c) 2020 Jakob Meng, <jakobmeng@web.de>
+
+\ProvidesDictionary{language}{ngerman}
+
+\providetranslation{definition}{Definition}
+\providetranslation{example}{Beispiel}
+\providetranslation{hypothesis}{Hypothese}
+\providetranslation{lemma}{Lemma}
+\providetranslation{remark}{Bemerkung}
+\providetranslation{theorem}{Satz}
+\providetranslation{subhypothesis}{Subhypothese}
