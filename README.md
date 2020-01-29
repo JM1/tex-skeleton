@@ -15,26 +15,26 @@ for submodule in bibliography tex_skeleton; do
 done
 
 for fgmt in \
-    .gitattributes \
-    .gitignore \
-    Makefile \
+    tex_skeleton/.gitattributes \
+    tex_skeleton/.gitignore \
+    tex_skeleton/Makefile \
 ; do
-    ln -s "tex_skeleton/$fgmt" "$fgmt"
+    ln -s "$fgmt" "$(basename "$fgmt")"
 done
 
-# report
-
+# for report only
 for fgmt in \
-    report/fgmt_*.tex \
-    report/language-*.dict \
+    tex_skeleton/report/fgmt_*.tex \
+    tex_skeleton/report/language-*.dict \
 ; do
-    ln -s "tex_skeleton/$fgmt" "$(basename "$fgmt")"
+    ln -s "$fgmt" "$(basename "$fgmt")"
 done
 
+# for report only
 for fgmt in \
-    report/*.example \
+    tex_skeleton/report/*.example \
 ; do
-    cp -raiv "tex_skeleton/${fgmt}" "$(basename --suffix '.example' "$fgmt")"
+    cp -raiv "${fgmt}" "$(basename --suffix '.example' "$fgmt")"
 done
 
 make
