@@ -1,5 +1,10 @@
 % Copyright (c) 2016-2020 Jakob Meng, <jakobmeng@web.de>
 
+% TODO: Translate everything into english.
+% TODO: Give reasons for package inclusion order.
+% TODO: Motivate packages. Why are they included?
+% TODO: Maybe add missing packages from master thesis latex document?
+
 \usepackage{etex} % increases the number of registers and thus prevents latex errors like '! No room for a new \<thing>...'
 
 \usepackage[
@@ -205,6 +210,7 @@
 \algrenewtext{MatlabFunction}[3]{\algorithmicmatlabfunction{} [#1] = \uppercase{#2}(#3)}
 \algrenewtext{EndMatlabFunction}{\algorithmicendmatlabfunction}
 
+% TODO: Explain \Description and show its usage.
 % Ref.: /usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 \newcommand{\Description}[1]{%
     \item[]\hspace{-\listparindent}
@@ -246,6 +252,8 @@
 \tikz[baseline=-.0ex]{\draw (0,0) -- (.66em,.66em) -- (.66em,0) -- (0,0);}
 } % lower right triangle (^^e2^^97^^bf)
 
+% TODO: Add unicode chars, e.g. all greek unicode letters.
+% TODO: Move unicode character declation to separate file?
 %\newunicodechar{≙}{\ensuremath{\mathrel{\hat=}}}
 \newunicodechar{≙}{\ensuremath{\hateq}}
 \newunicodechar{≈}{\ensuremath{\approx}}
@@ -363,7 +371,7 @@
 
 
 % Symbol for Programming Language C#
-%Ref.: http://tex.stackexchange.com/a/44540
+% Ref.: http://tex.stackexchange.com/a/44540
 %\newcommand{\Csh}{C{$^\sharp$}}
 \newcommand{\Csh}{C\#}
 %\newcommand{\Csh}{C\includegraphics{hash-symbol}}

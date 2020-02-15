@@ -14,6 +14,7 @@ git lfs install --local
 for submodule in bibliography tex_skeleton; do
     git submodule add "git@vm-2d21.inf.h-brs.de:jmeng2m/${submodule}.git"
     git config -f .gitmodules "submodule.${submodule}.update" rebase
+    (cd "$submodule" && git checkout master) # Enables 'git pull' in submodule dirs
 done
 
 for fgmt in \
