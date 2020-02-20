@@ -7,18 +7,21 @@
 
 \usepackage{etex} % increases the number of registers and thus prevents latex errors like '! No room for a new \<thing>...'
 
+\usepackage[T1]{fontenc} % Nutzung der erweiterten Zeichensaetze. 
+\usepackage[utf8]{inputenc} % fuer die Nutzung deutscher Umlauten (Windows)
+
 \usepackage[
     english, % secondary language
     ngerman  % primary language
 ]{babel} % hyphenation
 
+\usepackage{hyphenat} % Provides \hyp{}, used instead of hyphens, to break compound words between lines.
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst} % improved hyphenation
+
 \usepackage{translator}
 \usedictionary{language}
 
-\usepackage[T1]{fontenc} % Nutzung der erweiterten Zeichensaetze. 
-\usepackage[utf8]{inputenc} % fuer die Nutzung deutscher Umlauten (Windows)
 \usepackage{lmodern} % Latin Modern are a handmade vectorization of cm bitmap fonts
-
 \usepackage{amsmath} % mathematischer Formelsatz
 \usepackage{graphicx} % wichtig, um externe Grafiken einbinden zu koennen
 \usepackage{latexsym} % wichtig, fuer die mathematischen Sonderzeichen 
@@ -28,8 +31,6 @@
 \usepackage{stmaryrd} %fuer \rightarrowtriangle
 \usepackage[usenames,dvipsnames,svgnames]{xcolor} % Fügt weitere Farben mit Namen hinzu, muss vor dem tikz package eingebunden werden, damit das tikz package die Namen nutzen kann
 %\usepackage{inconsolata} % Google Fonts Inconsolata
-\usepackage[ngerman=ngerman-x-latest]{hyphsubst} % improved hyphenation
-
 
 \usepackage{enumitem} %Anpassbare Enumerates/Itemizes. Inkompatibel zu Beamer
 
