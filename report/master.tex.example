@@ -10,6 +10,7 @@
 \input{fgmt_00_about.tex}
 \input{fgmt_01_setup.tex}
 \input{fgmt_02_configure.tex}
+\geometry{left=20mm,right=20mm, top=20mm, bottom=5mm, includeheadfoot}
 
 \begin{document}
 
