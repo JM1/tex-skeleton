@@ -10,7 +10,20 @@
 \input{fgmt_00_about.tex}
 \input{fgmt_01_setup.tex}
 \input{fgmt_02_configure.tex}
-\geometry{left=20mm,right=20mm, top=20mm, bottom=5mm, includeheadfoot}
+
+\geometry{inner=2cm, outer=2cm, top=2cm, bottom=2cm, includeheadfoot}
+
+% Setup header and footer
+\KOMAoptions{headsepline,plainheadsepline,footsepline,plainfootsepline}
+\pagestyle{scrheadings}
+\ihead{\headmark}
+\chead{}
+\ohead[\pagemark]{\pagemark}
+\ifoot{}
+\cfoot{}
+\ofoot{}
+\automark[section]{chapter} % use for scrreprt and scrbook
+%\automark[subsection]{section} % use for scrartcl
 
 \begin{document}
 

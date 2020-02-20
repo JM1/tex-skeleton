@@ -132,8 +132,10 @@
 
 \usepackage{wrapfig} % Erlaubt Wrappen von Text neben Abbildungen
 
-\usepackage{scrhack} % KOMA-Script improvements, loaded at the end due to problems with e.g. package minted
-\usepackage[headsepline]{scrlayer-scrpage} % Page headers and footers for KOMA-Script, scrpage2 is obsolete now.
+% Page headers and footers for KOMA-Script
+% Customize using e.g. \KOMAoptions{headsepline}
+% NOTE: scrpage2 is obsolete now!
+\usepackage{scrlayer-scrpage}
 
 \usepackage{subcaption} %für begin{subfigure} etc.
 \usepackage{fancyvrb} % supports enhanced verbatim features, e.g. \begin{Verbatim}
@@ -150,6 +152,10 @@
 \usepackage{algorithm, algpseudocode} % Typesetting algorithms using pseudo code
 
 \usepackage{relsize} % Set font size relative to current font size, e.g. \relsize
+
+% KOMA-Script improvements
+% NOTE: scrhack is loaded at the end due to problems with e.g. package minted
+\usepackage{scrhack}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Extensions for algorithmic environments
@@ -447,17 +453,6 @@
 %  https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
-
-% Setup header and footer
-\pagestyle{scrheadings}
-\clearpairofpagestyles
-\ihead{\headmark}
-\chead{}
-\ohead{\pagemark}
-\ifoot{}
-\cfoot{}
-\ofoot{}
-%\automark{section}
 
 % no indentation at beginning of paragraphs
 \setlength{\parindent}{0ex} 
