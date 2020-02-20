@@ -14,27 +14,46 @@
     english, % secondary language
     ngerman  % primary language
 ]{babel} % hyphenation
-
 \usepackage{hyphenat} % Provides \hyp{}, used instead of hyphens, to break compound words between lines.
 \usepackage[ngerman=ngerman-x-latest]{hyphsubst} % improved hyphenation
+\usepackage{translator} % translate individual words into different languages
 
-\usepackage{translator}
-\usedictionary{language}
+\usepackage{amsmath} % mathematischer Formelsatz
+\usepackage{mathtools} % extension to amsmath with tools for mathematical typesetting
+\usepackage{amsthm} % fuer die Saetze / Theoreme (z.B. \newtheorem{}
 
 \usepackage{lmodern} % Latin Modern are a handmade vectorization of cm bitmap fonts
-\usepackage{amsmath} % mathematischer Formelsatz
-\usepackage{graphicx} % wichtig, um externe Grafiken einbinden zu koennen
-\usepackage{latexsym} % wichtig, fuer die mathematischen Sonderzeichen 
-\usepackage{amsthm} %fuer die Saetze / Theoreme (z.B. \newtheorem{}
-%\usepackage{ulem} % fuer das Unterstreichen (ACHTUNG: Unterstrichene Wörter werden nicht umgebrochen. Dies führt z.B. im Literaturverzeichnis zu Problemen bei langen Titeln etc.!)
-\usepackage{amssymb} %fuer \square
-\usepackage{stmaryrd} %fuer \rightarrowtriangle
-\usepackage[usenames,dvipsnames,svgnames]{xcolor} % Fügt weitere Farben mit Namen hinzu, muss vor dem tikz package eingebunden werden, damit das tikz package die Namen nutzen kann
 %\usepackage{inconsolata} % Google Fonts Inconsolata
+\usepackage{latexsym} % wichtig, fuer die mathematischen Sonderzeichen 
+\usepackage{amssymb} % e.g. \square
+\usepackage{stmaryrd} % e.g. \rightarrowtriangle
+\usepackage{arevmath} % Arev Sans fonts, e.g. \warning
+\usepackage[weather,misc]{ifsym} % Für \Radiation, \Sun ...
+\usepackage{textcomp} % Text Companion fonts, e.g. \textquotesingle
+\usepackage{oz} % e.g. \bij
+\usepackage{bbm} % Black­board vari­ants of Com­puter Modern fonts
+%\usepackage{musicography} % for music symbols, package is not in Debian Stretch and earlier
 
-\usepackage{enumitem} %Anpassbare Enumerates/Itemizes. Inkompatibel zu Beamer
+\usepackage{graphicx} % wichtig, um externe Grafiken einbinden zu koennen
 
-\usepackage[a4paper,left=20mm,right=20mm, top=20mm, bottom=5mm, includeheadfoot]{geometry} % Seitenabstaende etc. bei Thesis
+%\usepackage[normalem]{ulem} % e.g. \uline{} for underlining words
+%
+% ulem normally replaces italics with underlining in textemphasized  by \emph, and to some extent by \em.
+% A declaration of \normalem or the \usepackage option [normalem] disables this feature.
+%
+% NOTE: Every word is typeset in an underlined box, so automatic hyphenationis disabled,
+%       but explicit discretionary hyphens (\-) will still be obeyed. This causes problems
+%       e.g. with long titles in bibliography entries!
+%
+% Ref.: http://mirrors.ctan.org/macros/latex/contrib/ulem/ulem.pdf
+
+\usepackage[usenames,dvipsnames,svgnames]{xcolor} % Fügt weitere Farben mit Namen hinzu, muss vor dem tikz package eingebunden werden, damit das tikz package die Namen nutzen kann
+
+\usepackage{enumitem} % Control layout of itemize, enumerate, description. NOTE: Incompatible with beamer!
+
+% set page dimensions, e.g. using
+% \geometry{left=20mm,right=20mm, top=20mm, bottom=5mm, includeheadfoot}
+\usepackage[a4paper]{geometry}
 
 %setzt Helvetica als Standardschriftart im gesamten Dokument. Arial ist lediglich eine Nachahmung von Helvetica mit geringen Unterschieden. 
 %http://www.faqs.org/faqs/de-tex-faq/part10/
@@ -51,14 +70,15 @@
 % stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
 % Quelle: http://www.khirevich.com/latex/microtype/
 
-%\linespread {1.0} 
-%\linespread is evil! Siehe ftp://ftp.dante.de/tex-archive/info/german/l2tabu/l2tabu.pdf, lieber z.B. \onehalfspacing oder \singlespacing
-\usepackage{setspace} % Zeilenabstand mit z.B. \onehalfspacing % 1,5 Zeilen
-%% Zeilenabstand einstellen:
-%%\singlespacing
-%%\onehalfspacing
-%%\doublespacing
-%%\spacing{n}
+% Zeilenabstand einstellen, z.B.
+%  \singlespacing
+%  \onehalfspacing % 1.5-facher Zeilenabstand
+%  \doublespacing
+%  \spacing{n}
+%
+% NOTE: \linespread is evil, better use e.g. \onehalfspacing or \singlespacing
+%       Ref.: ftp://ftp.dante.de/tex-archive/info/german/l2tabu/l2tabu.pdf
+\usepackage{setspace}
 
 \usepackage{float} % fuer Listen mit \newfloat
 
@@ -103,84 +123,14 @@
 \usepackage{units} % Für Einheiten und schräge Bruchstriche mit \nicefrac{}{} oder \unitfrac{}{}
 
 \usepackage{newunicodechar}
-\usepackage{textcomp} % e.g. \textquotesingle
 
 \usepackage{listings}
-\lstset{
-    language={[11]C++},
-%     %language=bash,
-     basicstyle=\ttfamily\small,
-     numberstyle=\footnotesize,
-     numbers=left,
-     backgroundcolor=\color{gray!5},
-%      frame=single,
-    frame=tb,
-     tabsize=2,
-     rulecolor=\color{black!30},
-     %title=\lstname,
-%     escapeinside={\%*}{*)},
-     escapeinside={(*@}{@*)},
-%     breaklines=true,
-%     breakatwhitespace=true,
-%     framextopmargin=2pt,
-%     framexbottommargin=2pt,
-%     inputencoding=utf8,
-%     extendedchars=true,
-%
-    %aboveskip=0em,
-    %belowskip=0em,
-    xleftmargin=1.5em,
-    xrightmargin=2pt,
-    %framexleftmargin=1.5em, % line numbers inside paragraph
-    numbersep=6pt,
-    %columns=fullflexible,
-    showspaces=false,
-    showtabs=false,
-    breaklines=true,
-    showstringspaces=false,
-    breakatwhitespace=true,
-    commentstyle=\color{pgreen},
-    keywordstyle=\color{pblue},
-    stringstyle=\color{pred},
-    moredelim=[il][\textcolor{pgrey}]{\$\$},
-    moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
-    extendedchars=true,
-    literate=
-        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-        {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
-        {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-        {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
-        {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
-        {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
-        {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
-        {€}{{\EUR}}1 {£}{{\pounds}}1
-        {↓}{{$\downarrow$}}1,
-    captionpos=b,
-}
-
-% Ref.: https://tex.stackexchange.com/a/106129
-\definecolor{diffstart}{named}{Grey}
-\definecolor{diffincl}{named}{Green}
-\definecolor{diffrem}{named}{OrangeRed}
-\usepackage{listings}
-  \lstdefinelanguage{diff}{
-    basicstyle=\ttfamily\small,
-    morecomment=[f][\color{diffstart}]{@@},
-    morecomment=[f][\color{diffincl}]{+},
-    morecomment=[f][\color{diffrem}]{-},
-  }
-
-%\usepackage{minted} %Syntax Highlighting (ACHTUNG: Unterstützt keine deutschen Sonderzeichen wie ä,ö,ü!)
+%\usepackage{minted} % Syntax Highlighting (ACHTUNG: Unterstützt keine deutschen Sonderzeichen wie ä,ö,ü!)
 %\usemintedstyle{autumn}
 
 \usepackage{multimedia} % for \movie...
 
-\usepackage{wrapfig} %Erlaubt Wrappen von Text neben Abbildungen
-\usepackage[weather,misc]{ifsym} % Für \Radiation, \Sun ...
+\usepackage{wrapfig} % Erlaubt Wrappen von Text neben Abbildungen
 
 \usepackage{scrhack} % KOMA-Script improvements, loaded at the end due to problems with e.g. package minted
 \usepackage[headsepline]{scrlayer-scrpage} % Page headers and footers for KOMA-Script, scrpage2 is obsolete now.
@@ -190,26 +140,33 @@
 
 \usepackage{blkarray} % for \begin{blockarray}, see https://tex.stackexchange.com/a/59519/128708
 
-\usepackage{arevmath} % e.g. \warning
-\usepackage{oz} % e.g. \bij
+% \xspace should be used at the end of a macro designed to be used mainly in text.
+% It adds a space unless the macro is followed by certain punctuation characters.
+%
+% NOTE: The original \xspace author does recommend NOT to use it!
+%       Ref.: https://tex.stackexchange.com/a/86620/128708
+\usepackage{xspace}
 
-\usepackage{bbm} % Black­board vari­ants of Com­puter Modern fonts
+\usepackage{algorithm, algpseudocode} % Typesetting algorithms using pseudo code
 
-\usepackage{algorithm, algpseudocode} % Typesetting algorithms in form of "pseudocode"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Extensions for algorithmic environments
 
-% defines a new macro block for algorithm environment
+% new MATLAB macro block for algorithm environment
 % Ref.: https://tex.stackexchange.com/questions/19982/how-do-i-add-parfor-in-algorithmic-environment/20004#20004
 \algblock{Macro}{EndMacro}
 \algnewcommand\algorithmicmacro{\textbf{macro}}
 \algnewcommand\algorithmicendmacro{\textbf{end\ macro}}
 \algrenewtext{Macro}[1]{\algorithmicmacro{} \uppercase{#1}}
 \algrenewtext{EndMacro}{\algorithmicendmacro}
-
+%
 \algblock{MatlabFunction}{EndMatlabFunction}
 \algnewcommand\algorithmicmatlabfunction{\textbf{function}}
 \algnewcommand\algorithmicendmatlabfunction{\textbf{end\ function}}
 \algrenewtext{MatlabFunction}[3]{\algorithmicmatlabfunction{} [#1] = \uppercase{#2}(#3)}
 \algrenewtext{EndMatlabFunction}{\algorithmicendmatlabfunction}
+
+
 
 % TODO: Explain \Description and show its usage.
 % Ref.: /usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
@@ -233,12 +190,47 @@
 }
 % \algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Sign for ESTIMATES ≙ U+2259
+% Reference: https://tex.stackexchange.com/a/170101
 \makeatletter
-\renewcommand*{\ALG@name}{Algorithmus}
+%
+% \hateq from MnSymbol
+% \usepackage{MnSymbol}
+\@ifpackageloaded{MnSymbol}\@tempswafalse\@tempswatrue
+\if@tempswa
+  \DeclareFontFamily{U}{MnSymbolD}{}%
+  \DeclareSymbolFont{MnSyD}{U}{MnSymbolD}{m}{n}%
+  \SetSymbolFont{MnSyD}{bold}{U}{MnSymbolD}{b}{n}%
+  \DeclareFontShape{U}{MnSymbolD}{m}{n}{
+      <-6>  MnSymbolD5
+     <6-7>  MnSymbolD6
+     <7-8>  MnSymbolD7
+     <8-9>  MnSymbolD8
+     <9-10> MnSymbolD9
+    <10-12> MnSymbolD10
+    <12->   MnSymbolD12}{}%
+  \DeclareFontShape{U}{MnSymbolD}{b}{n}{
+      <-6>  MnSymbolD-Bold5
+     <6-7>  MnSymbolD-Bold6
+     <7-8>  MnSymbolD-Bold7
+     <8-9>  MnSymbolD-Bold8
+     <9-10> MnSymbolD-Bold9
+    <10-12> MnSymbolD-Bold10
+    <12->   MnSymbolD-Bold12}{}%
+  \DeclareMathSymbol{\hateq}{\mathrel}{MnSyD}{61}% 
+\fi
 \makeatother
 
-% \usepackage{musicography} % for music symbols, package is not in Debian Stretch and earlier
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\definecolor{diffstart}{named}{Grey}
+\definecolor{diffincl}{named}{Green}
+\definecolor{diffrem}{named}{OrangeRed}
 
 \newcommand{\ultriangle}{
 \tikz[baseline=-.0ex]{\draw (0,0) -- (.66em,0) -- (0,.66em) -- (0,0);}
@@ -311,13 +303,114 @@
 \newunicodechar{Λ}{\ensuremath{\Lambda}}
 \newunicodechar{λ}{\ensuremath{\lambda}}
 
-
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\house}{house}
 \DeclareMathOperator{\G}{G}
 \DeclareMathOperator{\tol}{tol}
 \DeclareMathOperator{\log}{log}
+
+% Symbol for Programming Language C#
+% Ref.: http://tex.stackexchange.com/a/44540
+%\newcommand{\Csh}{C{$^\sharp$}}
+\newcommand{\Csh}{C\#}
+%\newcommand{\Csh}{C\includegraphics{hash-symbol}}
+
+% Symbol for Programming Language C++
+% Ref.: 
+%  https://tex.stackexchange.com/questions/4302/prettiest-way-to-typeset-c-cplusplus
+\newcommand{\Cpp}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}}
+%\def\Cpp{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}}
+%
+%\newcommand{\Rplus}{\protect\hspace{-.1em}\protect\raisebox{.35ex}{\smaller{\smaller\textbf{+}}}}
+%\newcommand{\Cpp}{\mbox{C\Rplus\Rplus}\xspace}
+
+\newtheorem{theorem}{\translate{theorem}}
+\newtheorem{definition}[theorem]{\translate{definition}}
+\newtheorem{remark}[theorem]{\translate{remark}}
+\newtheorem{lemma}[theorem]{\translate{lemma}}
+\newtheorem{example}[theorem]{\translate{example}}
+
+\newtheorem{hypothesis}{\translate{hypothesis}}
+\newtheorem{subhypothesis}{\translate{subhypothesis}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typesetting C++ code
+
+\lstset{
+    language={[11]C++},
+%     %language=bash,
+     basicstyle=\ttfamily\small,
+     numberstyle=\footnotesize,
+     numbers=left,
+     backgroundcolor=\color{gray!5},
+%      frame=single,
+    frame=tb,
+     tabsize=2,
+     rulecolor=\color{black!30},
+     %title=\lstname,
+%     escapeinside={\%*}{*)},
+     escapeinside={(*@}{@*)},
+%     breaklines=true,
+%     breakatwhitespace=true,
+%     framextopmargin=2pt,
+%     framexbottommargin=2pt,
+%     inputencoding=utf8,
+%     extendedchars=true,
+%
+    %aboveskip=0em,
+    %belowskip=0em,
+    xleftmargin=1.5em,
+    xrightmargin=2pt,
+    %framexleftmargin=1.5em, % line numbers inside paragraph
+    numbersep=6pt,
+    %columns=fullflexible,
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    commentstyle=\color{pgreen},
+    keywordstyle=\color{pblue},
+    stringstyle=\color{pred},
+    moredelim=[il][\textcolor{pgrey}]{\$\$},
+    moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+    extendedchars=true,
+    literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+        {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+        {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+        {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+        {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+        {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+        {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+        {€}{{\EUR}}1 {£}{{\pounds}}1
+        {↓}{{$\downarrow$}}1,
+    captionpos=b,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typesetting diff files
+% Ref.: https://tex.stackexchange.com/a/106129
+
+\lstdefinelanguage{diff}{
+    basicstyle=\ttfamily\small,
+    morecomment=[f][\color{diffstart}]{@@},
+    morecomment=[f][\color{diffincl}]{+},
+    morecomment=[f][\color{diffrem}]{-},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usedictionary{language}
+% TODO: Move \hyphenation commands to separate files, e.g. same as with dictionaries
+%\hyphenation{Lauf-zeit}
+
+\bibliography{bibliography/references.bib}
 
 % Wie kann ich ,Hurenkinder` (engl. widows), also einzelne Zeilen eines Absatzes am Kopf von Buchseiten,
 % bzw. ,Schusterjungen/Waisenkinder` (engl. clubs), einzelne Absatzzeilen auf der Seite unten, verhindern?
@@ -329,72 +422,32 @@
 \displaywidowpenalty=300
 
 % Rename abstract heading when using babel
-\addto{\captionsngerman}{\renewcommand{\abstractname}{Abriss}}
+%\addto{\captionsngerman}{\renewcommand{\abstractname}{Abriss}}
 %\addto{\captionsngerman}{\renewcommand{\abstractname}{Abstract}}
 
 % Renaming the bibliography page using BibTeX, ref.: https://tex.stackexchange.com/a/12612
 %\renewcommand{\bibname}{Whatever floats your boat}
 %\addto{\captionsngerman}{\renewcommand{\bibname}{Literaturverzeichnis}}
 
-\bibliography{bibliography/references.bib}
-
-\hyphenation{Lauf-zeit}
-
-\definecolor{pblue}{rgb}{0.13,0.13,1}
-\definecolor{pgreen}{rgb}{0,0.5,0}
-\definecolor{pred}{rgb}{0.9,0,0}
-\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
-
-% Reference: https://tex.stackexchange.com/a/170101
+% Change "Algorithm" in caption of algorithms
+% Ref.: https://tex.stackexchange.com/a/230498/128708
 \makeatletter
-
-% \hateq from MnSymbol
-% \usepackage{MnSymbol}
-\@ifpackageloaded{MnSymbol}\@tempswafalse\@tempswatrue
-\if@tempswa
-  \DeclareFontFamily{U}{MnSymbolD}{}%
-  \DeclareSymbolFont{MnSyD}{U}{MnSymbolD}{m}{n}%
-  \SetSymbolFont{MnSyD}{bold}{U}{MnSymbolD}{b}{n}%
-  \DeclareFontShape{U}{MnSymbolD}{m}{n}{
-      <-6>  MnSymbolD5
-     <6-7>  MnSymbolD6
-     <7-8>  MnSymbolD7
-     <8-9>  MnSymbolD8
-     <9-10> MnSymbolD9
-    <10-12> MnSymbolD10
-    <12->   MnSymbolD12}{}%
-  \DeclareFontShape{U}{MnSymbolD}{b}{n}{
-      <-6>  MnSymbolD-Bold5
-     <6-7>  MnSymbolD-Bold6
-     <7-8>  MnSymbolD-Bold7
-     <8-9>  MnSymbolD-Bold8
-     <9-10> MnSymbolD-Bold9
-    <10-12> MnSymbolD-Bold10
-    <12->   MnSymbolD-Bold12}{}%
-  \DeclareMathSymbol{\hateq}{\mathrel}{MnSyD}{61}% 
-\fi
+\floatname{algorithm}{Algorithmus}
+%\renewcommand*{\ALG@name}{Algorithmus}
+\makeatother
 
 % Der Befehl \raggedbottom sorgt dafür, dass kein Ausgleich des unteren Seitenrandes durch Dehnung der Absatzabstände durchgeführt wird.
 % Ref.: http://tex.stackexchange.com/questions/10743/why-does-latex-stretch-small-sections-across-the-whole-page-vertically/10747#10747
 \raggedbottom
 
-
-% Symbol for Programming Language C#
-% Ref.: http://tex.stackexchange.com/a/44540
-%\newcommand{\Csh}{C{$^\sharp$}}
-\newcommand{\Csh}{C\#}
-%\newcommand{\Csh}{C\includegraphics{hash-symbol}}
-
-\setlength\parindent{0ex} %kein Einruecken am Anfang eines Paragraphen
-
 % Add an extra level of sections with headings below \subsubsection
-% Refs.: 
+% Refs.:
 %  https://tex.stackexchange.com/a/186982
 %  https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
-
+% Setup header and footer
 \pagestyle{scrheadings}
 \chead{}
 \ohead{\pagemark}
@@ -403,15 +456,10 @@
 \cfoot{}
 \ofoot{}
 
-\setlength\parskip{0.5\baselineskip}
+% no indentation at beginning of paragraphs
+\setlength{\parindent}{0ex} 
+
+% paragraph spacing, determines the space between a paragraph and the preceding text
+\setlength{\parskip}{0.5\baselineskip}
 
 \theoremstyle{definition}
-
-\newtheorem{theorem}{\translate{theorem}}
-\newtheorem{definition}[theorem]{\translate{definition}}
-\newtheorem{remark}[theorem]{\translate{remark}}
-\newtheorem{lemma}[theorem]{\translate{lemma}}
-\newtheorem{example}[theorem]{\translate{example}}
-
-\newtheorem{hypothesis}{\translate{hypothesis}}
-\newtheorem{subhypothesis}{\translate{subhypothesis}}
