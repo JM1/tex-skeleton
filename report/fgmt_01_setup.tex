@@ -326,8 +326,12 @@
 % Symbol for Programming Language C++
 % Ref.:
 %  https://tex.stackexchange.com/questions/4302/prettiest-way-to-typeset-c-cplusplus
-\newcommand\Cpp{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}}
+%\newcommand\Cpp{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}}
 %\newcommand\Cpp{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
+%
+% Without \nolinebreak and with \smaller[3] instead of \relsize{-3} to allow its usage in e.g. \section or \chapter:
+\newcommand\Cpp{C\hspace{-.05em}\raisebox{.4ex}{\smaller[3]{\textbf{+}}}\hspace{-.10em}\raisebox{.4ex}{\smaller[3]{\textbf{+}}}}
+%\newcommand\Cpp{C\hspace{-.05em}\raisebox{.4ex}{\smaller[3]{\textbf{++}}}}
 %
 %\newcommand{\Rplus}{\protect\hspace{-.1em}\protect\raisebox{.35ex}{\smaller{\smaller\textbf{+}}}}
 %\newcommand{\Cpp}{\mbox{C\Rplus\Rplus}\xspace}
