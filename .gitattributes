@@ -5,6 +5,7 @@
 *.doc filter=lfs diff=lfs merge=lfs -text lockable
 *.docx filter=lfs diff=lfs merge=lfs -text lockable
 *.jpg filter=lfs diff=lfs merge=lfs -text lockable
+*.jpeg filter=lfs diff=lfs merge=lfs -text lockable
 *.png filter=lfs diff=lfs merge=lfs -text lockable
 *.zip filter=lfs diff=lfs merge=lfs -text lockable
 *.ppt filter=lfs diff=lfs merge=lfs -text lockable
