@@ -20,10 +20,8 @@ $(OUT)/$(TEX).pdf: $(TEX).tex $(wildcard fgmt_*.tex rsrc_* language-*.dict) $(OU
 	@if git submodule status | egrep -q '^[-]|^[+]' ; then   \
 		git submodule update --quiet --init --recursive; \
 	fi
-	pdflatex -halt-on-error -shell-escape -draft-mode -output-directory $(OUT) $<
-	biber --output-directory $(OUT) $(TEX)
-	pdflatex -halt-on-error -shell-escape -draft-mode -output-directory $(OUT) $<
-	pdflatex -halt-on-error -shell-escape             -output-directory $(OUT) $<
+	latexmk -g -pdf -pdflatex="pdflatex -halt-on-error -shell-escape -interaction=nonstopmode" -use-make           \
+		-output-directory="$(OUT)" $<
 
 $(TEX).pdf: $(OUT)/$(TEX).pdf
 	@cp -f $< $@
