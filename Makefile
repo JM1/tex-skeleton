@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Jakob Meng, <jakobmeng@web.de>
+# Copyright (c) 2019-2020 Jakob Meng, <jakobmeng@web.de>
 # vim:set syntax=make:
 # kate: syntax Makefile; tab-indents on; replace-tabs off;
 
@@ -16,7 +16,7 @@ OUT=out
 $(OUT):
 	@mkdir -p $(OUT)
 
-$(OUT)/$(TEX).pdf: $(TEX).tex $(OUT)
+$(OUT)/$(TEX).pdf: $(TEX).tex $(wildcard fgmt_*.tex rsrc_* language-*.dict) $(OUT)
 	@if git submodule status | egrep -q '^[-]|^[+]' ; then   \
 		git submodule update --quiet --init --recursive; \
 	fi
