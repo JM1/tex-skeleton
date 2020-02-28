@@ -329,9 +329,9 @@
 %\newcommand\Cpp{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}}
 %\newcommand\Cpp{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
 %
-% Without \nolinebreak and with \smaller[0] instead of \relsize{-3} to allow its usage in e.g. \section or \chapter:
-\newcommand\Cpp{C\hspace{-.05em}\raisebox{.4ex}{\smaller[0]{\textbf{+}}}\hspace{-.10em}\raisebox{.4ex}{\smaller[0]{\textbf{+}}}}
-%\newcommand\Cpp{C\hspace{-.05em}\raisebox{.4ex}{\smaller[0]{\textbf{++}}}}
+% Replaced \relsize{-3} with \smaller[0] and added \protect to be able to use \Cpp in e.g. \section or \chapter:
+%\newcommand\Cpp{C\protect\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\smaller[0]{\textbf{+}}}\protect\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\smaller[0]{\textbf{+}}}}
+\newcommand\Cpp{C\protect\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\smaller[0]{\textbf{++}}}}
 %
 %\newcommand{\Rplus}{\protect\hspace{-.1em}\protect\raisebox{.35ex}{\smaller{\smaller\textbf{+}}}}
 %\newcommand{\Cpp}{\mbox{C\Rplus\Rplus}\xspace}
