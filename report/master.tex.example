@@ -26,6 +26,8 @@
 \automark[section]{chapter} % use for scrreprt and scrbook
 %\automark[subsection]{section} % use for scrartcl
 
+\addbibresource{bibliography/references.bib}
+
 \begin{document}
 
 \selectlanguage{ngerman} % babel
