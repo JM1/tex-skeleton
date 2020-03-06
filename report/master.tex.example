@@ -7,6 +7,9 @@
 %\documentclass{scrbook}
 \documentclass[10pt,toc=left]{scrreprt}
 
+% list of options used by any future \RequirePackage or \usepackage command for a package
+\PassOptionsToPackage{style=alphabetic}{biblatex}
+
 \input{fgmt_00_about.tex}
 \input{fgmt_01_setup.tex}
 \input{fgmt_02_configure.tex}
@@ -26,7 +29,6 @@
 \automark[section]{chapter} % use for scrreprt and scrbook
 %\automark[subsection]{section} % use for scrartcl
 
-\bibliographystyle{alphabetic} % default: numeric
 \addbibresource{references.bib}
 
 \begin{document}
