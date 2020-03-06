@@ -20,6 +20,19 @@ $(OUT)/$(TEX).pdf: $(TEX).tex $(wildcard fgmt_*.tex rsrc_* language-*.dict) $(OU
 	@if git submodule status | egrep -q '^[-]|^[+]' ; then   \
 		git submodule update --quiet --init --recursive; \
 	fi
+	
+	# Increase line width of Tex log output
+	#
+	# "It's probably inadvisable to change these. At any rate, we must have:
+	#  45 < error_line      < 255;
+	#  30 < half_error_line < error_line - 15;
+	#  60 <= max_print_line;
+	#  These apply to TeX, Metafont, and MetaPost."
+	# Ref.: /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+	export error_line=254;                                                                                         \
+	export half_error_line=239;                                                                                    \
+	export max_print_line=1000;                                                                                    \
+	                                                                                                               \
 	latexmk -g -pdf -pdflatex="pdflatex -halt-on-error -shell-escape -interaction=nonstopmode" -use-make           \
 		-output-directory="$(OUT)" $<
 
