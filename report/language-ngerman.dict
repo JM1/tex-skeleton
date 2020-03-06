@@ -9,3 +9,9 @@
 \providetranslation{remark}{Bemerkung}
 \providetranslation{theorem}{Satz}
 \providetranslation{subhypothesis}{Subhypothese}
+
+\babelhyphenation[ngerman]{%
+    Bi-blio-thek
+    Lauf-zeit
+    sta-tis-tisch
+}

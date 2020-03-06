@@ -4,6 +4,7 @@
 % TODO: Give reasons for package inclusion order.
 % TODO: Motivate packages. Why are they included?
 % TODO: Maybe add missing packages from master thesis latex document?
+% TODO: Should we split *.dict files into separate files for translations and hyphenations?
 
 \usepackage{etex} % increases the number of registers and thus prevents latex errors like '! No room for a new \<thing>...'
 
@@ -14,6 +15,8 @@
     english, % secondary language
     ngerman  % primary language
 ]{babel} % hyphenation
+% NOTE: Do not use \hyphenation, instead add your hyphenations with \babelhyphenation to *.dict files!
+
 \usepackage{hyphenat} % Provides \hyp{}, used instead of hyphens, to break compound words between lines.
 \usepackage[ngerman=ngerman-x-latest]{hyphsubst} % improved hyphenation
 \usepackage{translator} % translate individual words into different languages
@@ -418,8 +421,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usedictionary{language}
-% TODO: Move \hyphenation commands to separate files, e.g. same as with dictionaries
-%\hyphenation{Lauf-zeit}
 
 % Wie kann ich ,Hurenkinder` (engl. widows), also einzelne Zeilen eines Absatzes am Kopf von Buchseiten,
 % bzw. ,Schusterjungen/Waisenkinder` (engl. clubs), einzelne Absatzzeilen auf der Seite unten, verhindern?

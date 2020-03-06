@@ -9,3 +9,7 @@
 \providetranslation{remark}{Remark}
 \providetranslation{theorem}{Theorem}
 \providetranslation{subhypothesis}{Subhypothesis}
+
+%\babelhyphenation[english]{%
+%    
+%}
