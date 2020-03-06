@@ -26,6 +26,7 @@
 \automark[section]{chapter} % use for scrreprt and scrbook
 %\automark[subsection]{section} % use for scrartcl
 
+\bibliographystyle{alphabetic} % default: numeric
 \addbibresource{references.bib}
 
 \begin{document}
