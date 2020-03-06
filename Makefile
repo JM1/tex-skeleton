@@ -16,7 +16,7 @@ OUT=out
 $(OUT):
 	@mkdir -p $(OUT)
 
-$(OUT)/$(TEX).pdf: $(TEX).tex $(wildcard fgmt_*.tex rsrc_* language-*.dict) $(OUT)
+$(OUT)/$(TEX).pdf: $(TEX).tex $(wildcard fgmt_*.tex rsrc_* language-*.dict *.bib) $(OUT)
 	@if git submodule status | egrep -q '^[-]|^[+]' ; then   \
 		git submodule update --quiet --init --recursive; \
 	fi

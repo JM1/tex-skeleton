@@ -18,6 +18,7 @@ for submodule in bibliography tex_skeleton; do
 done
 
 for fgmt in \
+    bibliography/references.bib \
     tex_skeleton/.gitattributes \
     tex_skeleton/.gitignore \
     tex_skeleton/Makefile \
