@@ -8,6 +8,7 @@
 \documentclass[10pt,toc=left]{scrreprt}
 
 % list of options used by any future \RequirePackage or \usepackage command for a package
+\PassOptionsToPackage{shorthands=off}{babel}
 \PassOptionsToPackage{style=alphabetic}{biblatex}
 
 \input{fgmt_00_about.tex}
