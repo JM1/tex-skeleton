@@ -8,8 +8,8 @@
 
 \usepackage{etex} % increases the number of registers and thus prevents latex errors like '! No room for a new \<thing>...'
 
-\usepackage[T1]{fontenc} % Nutzung der erweiterten Zeichensaetze. 
-\usepackage[utf8]{inputenc} % fuer die Nutzung deutscher Umlauten (Windows)
+\usepackage[T1]{fontenc} % enables e.g. western european characters
+\usepackage[utf8]{inputenc} % accept UTF8 input encodings, e.g. german umlaute.
 
 \usepackage[
     english, % secondary language
@@ -32,7 +32,8 @@
 \usepackage{stmaryrd} % e.g. \rightarrowtriangle
 \usepackage{arevmath} % Arev Sans fonts, e.g. \warning
 \usepackage[weather,misc]{ifsym} % Für \Radiation, \Sun ...
-\usepackage{textcomp} % Text Companion fonts, e.g. \textquotesingle
+\usepackage{textcomp} % Text Companion fonts, which provide many text symbols in the TS1 encoding,
+                      % e.g. "registered"/"copyright"/"degree" symbols and \textquotesingle
 \usepackage{oz} % e.g. \bij
 \usepackage{bbm} % Black­board vari­ants of Com­puter Modern fonts
 %\usepackage{musicography} % for music symbols, package is not in Debian Stretch and earlier
@@ -120,7 +121,7 @@
             autostyle,
             %german=guillemets
             %german=quotes
-           ]{csquotes}
+           ]{csquotes} % e.g. \enquote
 
 \usepackage{ragged2e} % Erlaubt z.B. Linksbündiges Literaturverzeichnis
 \usepackage{units} % Für Einheiten und schräge Bruchstriche mit \nicefrac{}{} oder \unitfrac{}{}
@@ -320,6 +321,9 @@
 \DeclareMathOperator{\G}{G}
 \DeclareMathOperator{\tol}{tol}
 
+% highlighting of product and brand names
+\newcommand{\name}[1]{\textsf{#1}}
+
 % Symbol for Programming Language C#
 % Ref.: http://tex.stackexchange.com/a/44540
 %\newcommand{\Csh}{C{$^\sharp$}}
@@ -338,6 +342,9 @@
 %
 %\newcommand{\Rplus}{\protect\hspace{-.1em}\protect\raisebox{.35ex}{\smaller{\smaller\textbf{+}}}}
 %\newcommand{\Cpp}{\mbox{C\Rplus\Rplus}\xspace}
+%
+% \Cpp from Andreas Priesnitz
+%\newcommand{\Cpp}{\name{C\kern-0.05em+\kern-0.03em+}\xspace}
 
 \newtheorem{theorem}{\translate{theorem}}
 \newtheorem{definition}[theorem]{\translate{definition}}
@@ -349,36 +356,35 @@
 \newtheorem{subhypothesis}{\translate{subhypothesis}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Typesetting C++ code
+% Syntax highlighting setup
 
 \lstset{
-    language={[11]C++},
-%     %language=bash,
-     basicstyle=\ttfamily\small,
-     numberstyle=\footnotesize,
-     numbers=left,
-     backgroundcolor=\color{gray!5},
-%      frame=single,
+%    language={[11]C++},
+%    language=bash,
+    basicstyle=\ttfamily\small,
+    numberstyle=\footnotesize,
+    numbers=left,
+    backgroundcolor=\color{gray!5},
+%    frame=single,
     frame=tb,
-     tabsize=2,
-     rulecolor=\color{black!30},
-     %title=\lstname,
-%     escapeinside={\%*}{*)},
-     escapeinside={(*@}{@*)},
-%     breaklines=true,
-%     breakatwhitespace=true,
-%     framextopmargin=2pt,
-%     framexbottommargin=2pt,
-%     inputencoding=utf8,
-%     extendedchars=true,
-%
-    %aboveskip=0em,
-    %belowskip=0em,
+    tabsize=2,
+    rulecolor=\color{black!30},
+%    title=\lstname,
+%    escapeinside={\%*}{*)},
+    escapeinside={(*@}{@*)},
+%    breaklines=true,
+%    breakatwhitespace=true,
+%    framextopmargin=2pt,
+%    framexbottommargin=2pt,
+%    inputencoding=utf8,
+%    extendedchars=true,
+%    aboveskip=0em,
+%    belowskip=0em,
     xleftmargin=1.5em,
     xrightmargin=2pt,
-    %framexleftmargin=1.5em, % line numbers inside paragraph
+%    framexleftmargin=1.5em, % line numbers inside paragraph
     numbersep=6pt,
-    %columns=fullflexible,
+%    columns=fullflexible,
     showspaces=false,
     showtabs=false,
     breaklines=true,
@@ -407,7 +413,7 @@
     captionpos=b,
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typesetting diff files
 % Ref.: https://tex.stackexchange.com/a/106129
 
