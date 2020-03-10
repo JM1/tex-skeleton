@@ -1,0 +1,65 @@
+# HOWTO
+
+## Initial Setup
+```
+# Fetch prerequisites
+sudo apt install git git-lfs make texlive-full
+# or for a minimal setup
+sudo apt install git git-lfs make texlive latexmk biber texlive-bibtex-extra
+
+# Optional: Make git pull fetch and update new commits of all populated submodules
+git config --global submodule.recurse true
+
+# Optional: Make git pull always use --rebase instead of merging
+# Ref.: https://www.atlassian.com/git/articles/git-team-workflows-merge-or-rebase
+git config --global pull.rebase true
+
+# Clone repository
+git clone --recurse-submodules git@git.inf.h-brs.de:EXAMPLE_PATH_TO_YOUR_REPOSITORY.git
+# or
+git clone --recurse-submodules https://git.inf.h-brs.de/EXAMPLE_PATH_TO_YOUR_REPOSITORY
+
+# Enter repository
+cd EXAMPLE_PATH_TO_YOUR_REPOSITORY/
+
+# Setup Git LFS
+git lfs install --local
+```
+
+## Daily Usage
+```
+# Edit files
+editor fgmt_*.tex
+
+# NOTE: Do not edit files in submodules directly; except for 'git pull' do not
+#       execute any other git command within submodules. If you want to change
+#       any content within a submodule then 'git clone' its repository to a
+#       separate path outside of this git repository here. Edit, commit and push
+#       changes there. Then call 'git pull' in the submodule folder here. This
+#       will save yourself a lot of issues.
+
+# Build document
+make
+
+# Stage all changes
+git add -A
+# or stage new files and modifications, without deletions
+git add .
+# or stage modifications and deletions, without new files
+git add -u
+
+# Record changes
+git commit
+
+# Rebase (instead of merge) your commit onto the upstream branch after fetching
+#
+# NOTE: If you do not rebase your commit now, then 'git push' will force you
+#       to merge your branch and the upstream branch later!
+git pull --rebase
+
+# Update upstream
+git push
+
+# Remove build files
+make clean
+```
