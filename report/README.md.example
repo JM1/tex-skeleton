@@ -42,9 +42,9 @@ editor fgmt_*.tex
 make
 
 # Stage all changes
-git add -A
-# or stage new files and modifications, without deletions
 git add .
+# or stage new files and modifications, without deletions
+git add --ignore-removal .
 # or stage modifications and deletions, without new files
 git add -u
 
