@@ -2,7 +2,7 @@
 
 ## Initial Setup
 ```
-# Fetch prerequisites
+# Fetch prerequisites on Debian 10 (Buster) or Ubuntu 18.04 LTS (Bionic Beaver)
 sudo apt install git git-lfs make texlive-full
 # or for a minimal setup
 sudo apt install git git-lfs make texlive latexmk biber texlive-bibtex-extra
