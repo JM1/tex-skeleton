@@ -12,7 +12,21 @@ git lfs install --local
 
 # Setup Git submodules
 for submodule in bibliography tex_skeleton; do
-    git submodule add "git@git.inf.h-brs.de:jmeng2m/${submodule}.git"
+    # Using HTTPS instead of SSH for anonymous cloning of public git submodules.
+    #
+    # Cloning with SSH instead of HTTPs always requires a valid username
+    # and supplying a public SSH keys at your Git server, e.g. git.inf.h-brs.de!
+    #
+    # Both GitLab.com and GitHub.com do not allow anonymous access through SSH.
+    # "Public projects can be cloned without any authentication over HTTPS." [1]
+    # "SSH URLs provide access to a Git repository via SSH, a secure protocol.
+    #  To use these URLs, you must generate an SSH keypair on your computer
+    #  and add the public key to your GitHub account." [2]
+    #
+    # Ref.:
+    # [1] https://docs.gitlab.com/ce/public_access/public_access.html
+    # [2] https://help.github.com/en/github/using-git/which-remote-url-should-i-use#cloning-with-ssh-urls
+    git submodule add "https://git.inf.h-brs.de/jmeng2m/${submodule}.git"
     git config -f .gitmodules "submodule.${submodule}.update" rebase
     (cd "$submodule" && git checkout master) # Enables 'git pull' in submodule dirs
 done
