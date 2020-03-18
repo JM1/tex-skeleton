@@ -1,0 +1,12 @@
+image: jm1337/debian-tex
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+build:
+  stage: build
+  artifacts:
+    paths:
+      - master.pdf
+  script:
+    - make

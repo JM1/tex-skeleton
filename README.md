@@ -40,6 +40,12 @@ for fgmt in \
     ln -s "$fgmt" "$(basename "$fgmt")"
 done
 
+# GitLab CI is configured e.g. to fetch submodules recursively in .gitlab-ci.yml,
+# which means .gitlab-ci.yml must be available as a copy (not a link) during clone.
+# Also note that including local files through Git submodules paths is not supported.
+# Ref.: https://gitlab.com/gitlab-org/gitlab/issues/25249
+cp -raiv tex_skeleton/.gitlab-ci.yml.example .gitlab-ci.yml
+
 # for report only
 for fgmt in \
     tex_skeleton/report/fgmt_*.tex \
