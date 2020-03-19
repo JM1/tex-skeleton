@@ -1,4 +1,4 @@
-image: jm1337/debian-tex
+image: jm1337/debian-tex:buster
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
