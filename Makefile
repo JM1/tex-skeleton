@@ -2,7 +2,7 @@
 # vim:set syntax=make:
 # kate: syntax Makefile; tab-indents on; replace-tabs off;
 
-ifeq ($(wildcard .git),)
+ifeq ($(shell git rev-parse --is-inside-work-tree 2>/dev/null),)
     $(error YOU HAVE TO USE GIT TO DOWNLOAD THIS REPOSITORY. ABORTING.)
 endif
 
