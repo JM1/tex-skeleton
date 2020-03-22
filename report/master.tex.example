@@ -32,6 +32,16 @@
 
 \addbibresource{references.bib}
 
+% "Choose sans serif font family (e.g. Helvetica or Avant Garde)
+%  as the default one in text mode. Notice, however, that this
+%  does not change the fonts used in the formulas!" [3]
+%
+% Ref.:
+%  [1] http://www.faqs.org/faqs/de-tex-faq/part10/
+%  [2] https://ctan.org/tex-archive/info/german/detexfaq/detexfaq.pdf
+%  [3] http://mirrors.ctan.org/macros/latex/required/psnfss/psnfss2e.pdf
+\renewcommand{\familydefault}{\sfdefault}
+
 \begin{document}
 
 \selectlanguage{ngerman} % babel

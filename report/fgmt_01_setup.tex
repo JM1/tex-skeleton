@@ -59,10 +59,7 @@
 % \geometry{left=20mm,right=20mm, top=20mm, bottom=5mm, includeheadfoot}
 \usepackage[a4paper]{geometry}
 
-%setzt Helvetica als Standardschriftart im gesamten Dokument. Arial ist lediglich eine Nachahmung von Helvetica mit geringen Unterschieden. 
-%http://www.faqs.org/faqs/de-tex-faq/part10/
-\renewcommand{\familydefault}{\sfdefault}
-\usepackage{helvet}
+\usepackage{helvet} % Helvetica, a sans serif font family
 
 \usepackage{microtype}
 %\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true]{microtype}
@@ -156,6 +153,8 @@
 \usepackage{algorithm, algpseudocode} % Typesetting algorithms using pseudo code
 
 \usepackage{relsize} % Set font size relative to current font size, e.g. \relsize
+
+\usepackage{pdftexcmds} % e.g. \pdf@strcmp
 
 % KOMA-Script improvements
 % NOTE: scrhack is loaded at the end due to problems with e.g. package minted
@@ -330,21 +329,39 @@
 \newcommand{\Csh}{C\#}
 %\newcommand{\Csh}{C\includegraphics{hash-symbol}}
 
-% Symbol for Programming Language C++
-% Ref.:
-%  https://tex.stackexchange.com/questions/4302/prettiest-way-to-typeset-c-cplusplus
+% Different Symbols for Programming Language C++
+%
+% \Cpp from C++ FAQ
+% Ref.: https://tex.stackexchange.com/questions/4302/prettiest-way-to-typeset-c-cplusplus
 %\newcommand\Cpp{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}}
 %\newcommand\Cpp{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
 %
-% Replaced \relsize{-3} with \smaller[1] and added \protect to be able to use \Cpp in e.g. \section or \chapter:
-%\newcommand\Cpp{C\protect\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\smaller[1]{\textbf{+}}}\protect\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\smaller[1]{\textbf{+}}}}
-\newcommand\Cpp{C\protect\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\smaller[1]{\textbf{++}}}}
+% Replaced \relsize{-3} with \smaller[3] and added \protect to be able to use \Cpp in e.g. \section or \chapter:
+%\newcommand\Cpp{C\protect\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\smaller[3]{\textbf{+}}}\protect\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\smaller[3]{\textbf{+}}}}
+%\newcommand\Cpp{C\protect\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\smaller[3]{\textbf{++}}}}
 %
 %\newcommand{\Rplus}{\protect\hspace{-.1em}\protect\raisebox{.35ex}{\smaller{\smaller\textbf{+}}}}
 %\newcommand{\Cpp}{\mbox{C\Rplus\Rplus}\xspace}
 %
 % \Cpp from Andreas Priesnitz
 %\newcommand{\Cpp}{\name{C\kern-0.05em+\kern-0.03em+}\xspace}
+%
+% \Cpp from Andreas Priesnitz
+%\newcommand{\pp}{\kern-0.05em\texttt{+\kern-0.03em+}\xspace}
+%\newcommand{\Cpp}{\name{C}\pp}
+
+\newcommand{\pp}{\kern-0.05em\texttt{+\kern-0.03em+}\xspace}
+\makeatletter
+\newcommand{\Cpp}{
+    \ifnum\pdf@strcmp{\f@family}{\sfdefault}=\z@
+        % Use \Cpp from Andreas Priesnitz for sans sarif font family
+        \name{C}\pp
+    \else
+        % Use \Cpp from C++ FAQ for other font families
+        C\protect\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\smaller[3]{\textbf{++}}}
+    \fi
+}
+\makeatother
 
 \newtheorem{theorem}{\translate{theorem}}
 \newtheorem{definition}[theorem]{\translate{definition}}
