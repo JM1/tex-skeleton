@@ -1,12 +1,42 @@
 # HOWTO
 
 ## Initial Setup
+
+On `Debian 10 (Buster)` or `Ubuntu 18.04 LTS (Bionic Beaver)`:
 ```
-# Fetch prerequisites on Debian 10 (Buster) or Ubuntu 18.04 LTS (Bionic Beaver)
+# Fetch prerequisites
 sudo apt install git git-lfs ssh-client make texlive-full
 # or for a minimal setup
 sudo apt install git git-lfs ssh-client make texlive latexmk biber texlive-bibtex-extra
+```
 
+On Windows 10:
+* Download [Docker for Windows](https://docs.docker.com/docker-for-windows/) and run in Cmd to get a LaTeX environment:\
+  ```
+    # fetch docker image
+    docker pull jm1337/debian-tex:buster
+
+    # log into docker container
+    docker run -ti --rm jm1337/debian-tex:buster
+    # or for a persistent home directory, e.g.
+    docker run -ti --rm -v C:\YOUR_DIR:/home --workdir=/home jm1337/debian-tex:buster
+  ```
+* Or install [Git for Windows](https://git-scm.com/download/win) and use your favorite LaTeX editor
+* **Watch out, this repository uses symbolic links!** Windows supports symbolic links since Vista,
+  but by default, Git for Windows creates [copies instead of symbolic links][1]. Git for Windows
+  has to be [configured, e.g. during install, to create and use symbolic links][2]. But still, you
+  might run into problems with Windows Subsystem for Linux (WSL), get help [here][3] and [here][4].
+
+  [1]: https://github.com/git-for-windows/git/wiki/Symbolic-Links
+  [2]: https://github.community/t5/How-to-use-Git-and-GitHub/git-bash-symbolic-links-on-windows/m-p/11488#M3732
+  [3]: https://github.com/microsoft/WSL/issues/3611
+  [4]: https://stackoverflow.com/questions/56504821/sharing-git-repo-symlinks-between-windows-and-wsl
+
+
+
+## Git Repository Setup
+
+```
 # Optional: Make git pull fetch and update new commits of all populated submodules
 git config --global submodule.recurse true
 
@@ -26,7 +56,10 @@ cd EXAMPLE_PATH_TO_YOUR_REPOSITORY/
 git lfs install --local
 ```
 
+
+
 ## Daily Usage
+
 ```
 # Edit files
 editor fgmt_*.tex
