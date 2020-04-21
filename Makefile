@@ -11,8 +11,6 @@ OUT=out
 
 .DEFAULT_GOAL := all
 
-.PHONY: all clean submodulesclean submodulesupdate distclean
-
 $(OUT):
 	@mkdir -p $(OUT)
 
@@ -40,21 +38,26 @@ $(TEX).pdf: $(OUT)/$(TEX).pdf
 	@cp -f $< $@
 
 all: $(TEX).pdf
+.PHONY: all
 
 clean:
 	@rm -rf "$(OUT)"
+.PHONY: clean
 
 submodulesclean:
 	@git submodule foreach --quiet --recursive git clean -ff -x -d
 	@git submodule update --quiet --init --recursive --force || true
 	@git submodule sync --recursive
 	@git submodule update --init --recursive --force
+.PHONY: submodulesclean
 
 submodulesupdate:
 	@git submodule update --quiet --init --recursive || true
 	@git submodule sync --recursive
 	@git submodule update --init --recursive
+.PHONY: submodulesupdate
 
 distclean:
 	@git submodule deinit -f .
 	@git clean -ff -x -d
+.PHONY: distclean
