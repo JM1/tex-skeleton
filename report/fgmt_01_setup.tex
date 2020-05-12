@@ -156,6 +156,11 @@
 
 \usepackage{pdftexcmds} % e.g. \pdf@strcmp
 
+\usepackage{layout} % \layout to display page layout variables
+\usepackage{lastpage} % label LastPage (\AtEndDocument) allows to refer to the last page via \pageref{LastPage}
+\usepackage{tabularx} % environment tabularx takes the same arguments as tabular*, but modifies the widths of certain
+                      % columns, rather than the inter column space, to set a table with the requested total width.
+
 % KOMA-Script improvements
 % NOTE: scrhack is loaded at the end due to problems with e.g. package minted
 \usepackage{scrhack}
