@@ -11,15 +11,15 @@ sudo apt install git git-lfs ssh-client make texlive latexmk biber texlive-bibte
 ```
 
 On Windows 10:
-* Download [Docker for Windows](https://docs.docker.com/docker-for-windows/) and run in Cmd to get a LaTeX environment:\
+* Download [Docker for Windows](https://docs.docker.com/docker-for-windows/) and run in Cmd to get a LaTeX environment:
   ```
-    # fetch docker image
-    docker pull jm1337/debian-tex:buster
+  # fetch docker image
+  docker pull jm1337/debian-tex:buster
 
-    # log into docker container
-    docker run -ti --rm jm1337/debian-tex:buster
-    # or for a persistent home directory, e.g.
-    docker run -ti --rm -v C:\YOUR_DIR:/home --workdir=/home jm1337/debian-tex:buster
+  # log into docker container
+  docker run -ti --rm jm1337/debian-tex:buster
+  # or for a persistent home directory, e.g.
+  docker run -ti --rm -v C:\YOUR_DIR:/home --workdir=/home jm1337/debian-tex:buster
   ```
 * Or install [Git for Windows](https://git-scm.com/download/win) and use your favorite LaTeX editor
 * **Watch out, this repository uses symbolic links!** Windows supports symbolic links since Vista,
